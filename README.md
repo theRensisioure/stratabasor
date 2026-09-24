@@ -26,6 +26,10 @@ The split there is the home folder and `~/durable`. Open the page through the se
 
 Opens fullscreen in Edge when Edge is on the machine. Otherwise the same local-browser open AyTree uses. Page is `http://127.0.0.1:8741/`.
 
+## Directories
+
+`roots.json` holds the spine's saved directories. Each machine keeps its own. It is not in git.
+
 ## Keys
 
 `keybinds.csv` is the only key list. Each column is a key. Each row is a bind. The column `unbound` is parked. It is not a keyboard key.
