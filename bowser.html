@@ -143,7 +143,7 @@
   var active = -1;
   var binds = [];
   var wide = 220;
-  var SPLIT = ["C:\\dev", "C:\\Users\\bardw\\durable"];
+  var SPLIT = [];
 
   function paintTabs() {
     tabsEl.innerHTML = "";
@@ -483,6 +483,8 @@
   });
   fetch("/api/roots").then(function (r) { return r.json(); }).then(function (j) {
     roots = j.roots || [];
+    SPLIT = j.split || [];
+    if (active < 0) showSplit();
     paintTabs();
     var pick = -1;
     roots.forEach(function (path, i) {
@@ -491,7 +493,6 @@
     });
     if (pick >= 0) select(pick);
   });
-  showSplit();
 })();
 </script>
 </body>

@@ -16,7 +16,19 @@ Hold the pointer on a row and the hover card fills in, above the companion card.
 python C:\dev\stratabasor\serve.py
 ```
 
+On Linux:
+
+```sh
+python3 ~/stratabasor/serve.py
+```
+
+The split there is the home folder and `~/durable`. Open the page through the server, not the `bowser.html` file.
+
 Opens fullscreen in Edge when Edge is on the machine. Otherwise the same local-browser open AyTree uses. Page is `http://127.0.0.1:8741/`.
+
+## Directories
+
+`roots.json` holds the spine's saved directories. Each machine keeps its own. It is not in git.
 
 ## Keys
 

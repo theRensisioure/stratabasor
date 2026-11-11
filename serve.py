@@ -22,7 +22,10 @@ PAGE = ROOT / "bowser.html"
 BINDS = ROOT / "keybinds.csv"
 SAVED = ROOT / "roots.json"
 PORT = 8741
-DEFAULT_ROOTS = (r"C:\dev", r"C:\Users\bardw\durable")
+if os.name == "nt":
+    DEFAULT_ROOTS = (r"C:\dev", r"C:\Users\bardw\durable")
+else:
+    DEFAULT_ROOTS = (str(Path.home()), str(Path.home() / "durable"))
 IGNORED_DIRS = {
     ".git", "node_modules", "venv", ".venv", "__pycache__",
     ".vscode", ".idea", ".gemini", "obj", "bin",
@@ -268,7 +271,7 @@ class Handler(BaseHTTPRequestHandler):
             self._json(200, {"binds": load_binds()})
             return
         if parsed.path == "/api/roots":
-            self._json(200, {"roots": load_roots()})
+            self._json(200, {"roots": load_roots(), "split": list(DEFAULT_ROOTS)})
             return
         if parsed.path == "/api/tree":
             qs = parse_qs(parsed.query)
